@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>hZYk36___@@</title>
+
+    <style>
+
+        /* Styles de base pour l'apparence terminal */
+
+        body {
+
+            background-color: black;
+
+            color: lime;
+
+            font-family: 'Courier New', Courier, monospace;
+
+            overflow: hidden;
+
+        }
+
+        #terminal {
+
+            width: 80%;
+
+            height: 80%;
+
+            margin: auto;
+
+            border: 1px solid green;
+
+            padding: 20px;
+
+            overflow-y: scroll;
+
+            white-space: pre-wrap;
+
+        }
+
+        #input {
+
+            width: 100%;
+
+            border: none;
+
+            background: none;
+
+            color: lime;
+
+            outline: none;
+
+        }
+
+        .hidden-message, .log-message, .hover-content, .time-secret {
+
+            display: none;
+
+            color: yellow;
+
+            margin-top: 10px;
+
+        }
+
+        .hover-item {
+
+            display: inline-block;
+
+            position: relative;
+
+            cursor: pointer;
+
+        }
+
+        .hover-item:hover .hover-content {
+
+            display: block;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<div id="terminal">
+
+    Initialisation de l'interface de hZYk36...<br>
+
+    Tapez 'help' pour voir les commandes disponibles.<br>
+
+    <div id="hidden-message-1" class="hidden-message">Indice 1 : "L'ombre de l'Internet cache des vérités."</div>
+
+    <div id="hidden-message-2" class="hidden-message">Indice 2 : "Les chiffres sont la clé pour débloquer les mystères."</div>
+
+    <div id="hidden-message-3" class="hidden-message">Indice 3 : "Regardez au-delà des apparences, tout n'est pas ce qu'il semble."</div>
+
+    <div id="time-secret" class="time-secret">Message secret : Il est exactement 13h00. Quelque chose de spécial se passe.</div>
+
+</div>
+
+
+
+<input type="text" id="input" placeholder="Entrez votre commande...">
+
+
+
+<script>
+
+    const terminal = document.getElementById('terminal');
+
+    const input = document.getElementById('input');
+
+
+
+    // Historique des commandes pour l'affichage des logs
+
+    let commandHistory = [];
+
+
+
+    input.addEventListener('keypress', function(event) {
+
+        if (event.key === 'Enter') {
+
+            const command = input.value;
+
+            terminal.innerHTML += '> ' + command + '<br>';
+
+            handleCommand(command);
+
+            commandHistory.push(command);
+
+            input.value = '';
+
+        }
+
+    });
+
+
+
+    function handleCommand(command) {
+
+        const currentTime = new Date();
+
+        const hours = currentTime.getHours();
+
+        const minutes = currentTime.getMinutes();
+
+
+
+        if (command === 'help') {
+
+            terminal.innerHTML += "Commandes disponibles : help, secrets, hidden, log, time, unlock [code], info, download<br>";
+
+        } else if (command === 'secrets') {
+
+            terminal.innerHTML += "Secret 1 : L'ombre n'est jamais seule.<br>";
+
+        } else if (command === 'hidden') {
+
+            document.getElementById('hidden-message-1').style.display = 'block';
+
+            terminal.innerHTML += "Vous avez trouvé un indice caché !<br>";
+
+        } else if (command === 'log') {
+
+            document.getElementById('hidden-message-2').style.display = 'block';
+
+            terminal.innerHTML += "Lecture du fichier log...<br>";
+
+            terminal.innerHTML += "Log 01 : Anomalie détectée à 02h00.<br>";
+
+            terminal.innerHTML += "Log 02 : Fichier encrypté - code manquant.<br>";
+
+        } else if (command === 'time') {
+
+            if (hours === 13 && minutes === 0) {
+
+                document.getElementById('time-secret').style.display = 'block';
+
+                terminal.innerHTML += "Un message spécial est apparu car il est 13h00 !<br>";
+
+            } else {
+
+                terminal.innerHTML += `Il est actuellement ${hours}:${minutes}. Revenez à 13h00 pour quelque chose de spécial.<br>`;
+
+            }
+
+        } else if (command.startsWith('unlock')) {
+
+            const code = command.split(" ")[1];
+
+            if (code === "42") {
+
+                document.getElementById('hidden-message-3').style.display = 'block';
+
+                terminal.innerHTML += "Accès débloqué : Vous avez utilisé le bon code !<br>";
+
+            } else {
+
+                terminal.innerHTML += "Code incorrect. Essayez encore.<br>";
+
+            }
+
+        } else if (command === 'info') {
+
+            terminal.innerHTML += "Informations : hZYk36 est un projet en développement. Suivez les indices pour plus de détails.<br>";
+
+        } else if (command === 'download') {
+
+            // Affichage d'un message de confirmation de téléchargement
+
+            terminal.innerHTML += "Téléchargement de hZYk36.exe en cours...<br>";
+
+
+
+            // Création et déclenchement du téléchargement local
+
+            const downloadLink = document.createElement('a');
+
+            downloadLink.href = "hZYk36.exe"; // Fichier local
+
+            downloadLink.download = "hZYk36.exe";
+
+            downloadLink.click();
+
+        } else {
+
+            terminal.innerHTML += "Commande non reconnue. <br>";
+
+        }
+
+
+
+        // Faire défiler vers le bas pour les nouveaux messages
+
+        terminal.scrollTop = terminal.scrollHeight;
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>
