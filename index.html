@@ -160,7 +160,7 @@
 
         if (command === 'help') {
 
-            terminal.innerHTML += "Commandes disponibles : help, secrets, hidden, log, time, unlock [code], info, download<br>";
+            terminal.innerHTML += "Commandes disponibles : help, secrets, hidden, log, time, unlock [code], info, download<br>, download beta<br>";
 
         } else if (command === 'secrets') {
 
@@ -231,6 +231,24 @@
             downloadLink.href = "hZYk36.exe"; // Fichier local
 
             downloadLink.download = "hZYk36.exe";
+
+            downloadLink.click();
+
+        } else if (command === 'download beta') {
+
+            // Affichage d'un message de confirmation de téléchargement
+
+            terminal.innerHTML += "Téléchargement de hZYk36_bêta.exe v1.0 en cours...<br>";
+
+
+
+            // Création et déclenchement du téléchargement local
+
+            const downloadLink = document.createElement('a');
+
+            downloadLink.href = "hZYk36_bêta.exe"; // Fichier local
+
+            downloadLink.download = "hZYk36_bêta.exe";
 
             downloadLink.click();
 
